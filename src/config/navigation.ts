@@ -1,0 +1,217 @@
+import { NavigationItem } from "@/types";
+
+export const navigationItems: NavigationItem[] = [
+  {
+    id: "comps-table",
+    label: "Comps Table",
+    icon: "Grid",
+    href: "/comps-table",
+  },
+  {
+    id: "company-profiles",
+    label: "Company Profiles",
+    icon: "Building",
+    href: "/company-profiles",
+    isActive: true,
+  },
+  {
+    id: "regression-analysis",
+    label: "Regression Analysis",
+    icon: "TrendingUp",
+    href: "/regression-analysis",
+  },
+  {
+    id: "valuation-metrics",
+    label: "Valuation Metrics",
+    icon: "DollarSign",
+    href: "/valuation-metrics",
+    children: [
+      {
+        id: "multiple-return-ipo",
+        label: "Multiple Return Since IPO",
+        icon: "Calculator",
+        href: "/valuation-metrics/multiple-return-ipo",
+      },
+      {
+        id: "equity-value",
+        label: "Equity Value ($B)",
+        icon: "DollarSign",
+        href: "/valuation-metrics/equity-value",
+      },
+      {
+        id: "ev-ntm-revenue",
+        label: "EV / NTM Revenue",
+        icon: "BarChart3",
+        href: "/valuation-metrics/ev-ntm-revenue",
+      },
+      {
+        id: "growth-adjusted-ev",
+        label: "Growth Adjusted EV / NTM Revenue",
+        icon: "TrendingUp",
+        href: "/valuation-metrics/growth-adjusted-ev",
+      },
+      {
+        id: "ev-arr",
+        label: "EV / ARR",
+        icon: "Calculator",
+        href: "/valuation-metrics/ev-arr",
+      },
+      {
+        id: "ev-ntm-gross-profit",
+        label: "EV / NTM Gross Profit",
+        icon: "BarChart",
+        href: "/valuation-metrics/ev-ntm-gross-profit",
+      },
+    ],
+  },
+  {
+    id: "operating-metrics",
+    label: "Operating Metrics",
+    icon: "Clock",
+    href: "/operating-metrics",
+    children: [
+      {
+        id: "magic-number",
+        label: "Magic Number",
+        icon: "TrendingUp",
+        href: "/operating-metrics/magic-number",
+      },
+      {
+        id: "payback-period",
+        label: "Payback Period",
+        icon: "Clock",
+        href: "/operating-metrics/payback-period",
+      },
+      {
+        id: "implied-average-acv",
+        label: "Implied Average ACV ($k)",
+        icon: "DollarSign",
+        href: "/operating-metrics/implied-average-acv",
+      },
+      {
+        id: "implied-arr-fte",
+        label: "Implied ARR / FTE ($k)",
+        icon: "Calculator",
+        href: "/operating-metrics/implied-arr-fte",
+      },
+      {
+        id: "annualized-opex-fte",
+        label: "Annualized OpEx / FTE ($k)",
+        icon: "BarChart",
+        href: "/operating-metrics/annualized-opex-fte",
+      },
+      {
+        id: "net-dollar-retention",
+        label: "Net Dollar Retention",
+        icon: "TrendingUp",
+        href: "/operating-metrics/net-dollar-retention",
+      },
+      {
+        id: "company-age",
+        label: "Company Age",
+        icon: "Clock",
+        href: "/operating-metrics/company-age",
+      },
+    ],
+  },
+  {
+    id: "financial-metrics",
+    label: "Financial Metrics",
+    icon: "BarChart",
+    href: "/financial-metrics",
+    children: [
+      {
+        id: "implied-arr",
+        label: "Implied ARR ($M)",
+        icon: "DollarSign",
+        href: "/financial-metrics/implied-arr",
+      },
+      {
+        id: "arr-growth-yoy",
+        label: "ARR Growth (YoY)",
+        icon: "TrendingUp",
+        href: "/financial-metrics/arr-growth-yoy",
+      },
+      {
+        id: "gross-margin-ltm",
+        label: "Gross Margin (LTM)",
+        icon: "PieChart",
+        href: "/financial-metrics/gross-margin-ltm",
+      },
+      {
+        id: "sm-revenue-ltm",
+        label: "S&M % of Revenue (LTM)",
+        icon: "BarChart",
+        href: "/financial-metrics/sm-revenue-ltm",
+      },
+      {
+        id: "rd-revenue-ltm",
+        label: "R&D % of Revenue (LTM)",
+        icon: "Gauge",
+        href: "/financial-metrics/rd-revenue-ltm",
+      },
+      {
+        id: "ga-revenue-ltm",
+        label: "G&A % of Revenue (LTM)",
+        icon: "Calculator",
+        href: "/financial-metrics/ga-revenue-ltm",
+      },
+      {
+        id: "opex-revenue-ltm",
+        label: "OpEx % of Revenue (LTM)",
+        icon: "BarChart3",
+        href: "/financial-metrics/opex-revenue-ltm",
+      },
+      {
+        id: "operating-income-margin",
+        label: "Operating Income Margin (LTM)",
+        icon: "PieChart",
+        href: "/financial-metrics/operating-income-margin",
+      },
+      {
+        id: "free-cash-flow-margin",
+        label: "Free Cash Flow Margin (LTM)",
+        icon: "DollarSign",
+        href: "/financial-metrics/free-cash-flow-margin",
+      },
+      {
+        id: "ntm-rule-of-40",
+        label: "NTM Rule of 40",
+        icon: "Gauge",
+        href: "/financial-metrics/ntm-rule-of-40",
+      },
+    ],
+  },
+  {
+    id: "trading-data",
+    label: "Trading Data",
+    icon: "Activity",
+    href: "/trading-data",
+    children: [
+      {
+        id: "ev-ntm-revenue-trading",
+        label: "EV / NTM revenue",
+        icon: "BarChart",
+        href: "/trading-data/ev-ntm-revenue",
+      },
+      {
+        id: "combined-stock-price",
+        label: "Combined Stock Price, Multiple, and Growth",
+        icon: "LineChart",
+        href: "/trading-data/combined-stock-price",
+      },
+      {
+        id: "cumulative-equity-value",
+        label: "Cumulative Equity Value",
+        icon: "DollarSign",
+        href: "/trading-data/cumulative-equity-value",
+      },
+      {
+        id: "cumulative-revenue",
+        label: "Cumulative Revenue",
+        icon: "TrendingUp",
+        href: "/trading-data/cumulative-revenue",
+      },
+    ],
+  },
+];
