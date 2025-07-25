@@ -86,7 +86,6 @@ export function CompanyProfileChart({ companyId }: CompanyProfileChartProps) {
   }));
 
   const maxArr = Math.max(...chartDataInBillions.map((d) => d.impliedArr));
-  const maxNetNewArr = Math.max(...chartData.map((d) => d.netNewArr));
   const maxGrowth = Math.max(...chartData.map((d) => d.yoyGrowth));
 
   const chartHeight = 400;

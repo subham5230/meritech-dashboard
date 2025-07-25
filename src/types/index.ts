@@ -213,3 +213,36 @@ export interface ChartDataPoint {
   netNewArr: number;
   yoyGrowth: number;
 }
+
+// Chart-specific data types
+export interface FreeCashFlowDataPoint {
+  quarter: string;
+  fcf: number;
+  fcfMargin: number;
+}
+
+export interface GrossProfitDataPoint {
+  quarter: string;
+  grossProfit: number;
+  grossMargin: number;
+}
+
+export interface LtmRevenueDataPoint {
+  quarter: string;
+  ltmRevenue: number;
+  yoyGrowth: number;
+}
+
+export interface RuleOf40DataPoint {
+  quarter: string;
+  ruleOf40: number;
+  revenueGrowth: number;
+  profitMargin: number;
+}
+
+export interface MultiplesDataPoint {
+  quarter: string;
+  evToRevenue: number;
+  evToGrossProfit: number;
+  evToFcf: number;
+}

@@ -2,19 +2,15 @@
 
 import { useState } from "react";
 import { trpc } from "@/utils/trpc";
+import { FreeCashFlowDataPoint } from "@/types";
 
 interface FreeCashFlowChartProps {
   companyId: string;
 }
 
-interface ChartDataPoint {
-  quarter: string;
-  fcf: number;
-  fcfMargin: number;
-}
-
 export function FreeCashFlowChart({ companyId }: FreeCashFlowChartProps) {
-  const [hoveredPoint, setHoveredPoint] = useState<ChartDataPoint | null>(null);
+  const [hoveredPoint, setHoveredPoint] =
+    useState<FreeCashFlowDataPoint | null>(null);
 
   const {
     data: chartData = [],
@@ -78,8 +74,12 @@ export function FreeCashFlowChart({ companyId }: FreeCashFlowChartProps) {
     );
   }
 
-  const maxFcf = Math.max(...chartData.map((d: any) => d.fcf));
-  const maxMargin = Math.max(...chartData.map((d: any) => d.fcfMargin));
+  const maxFcf = Math.max(
+    ...chartData.map((d: FreeCashFlowDataPoint) => d.fcf)
+  );
+  const maxMargin = Math.max(
+    ...chartData.map((d: FreeCashFlowDataPoint) => d.fcfMargin)
+  );
 
   const chartHeight = 400;
   const chartWidth = 1000;
@@ -120,7 +120,7 @@ export function FreeCashFlowChart({ companyId }: FreeCashFlowChartProps) {
           ))}
 
           {/* FCF Bars */}
-          {chartData.map((point: any, index: any) => {
+          {chartData.map((point: FreeCashFlowDataPoint, index: number) => {
             const x = index * (barWidth + spacing);
             const barHeight = getBarHeight(point.fcf, maxFcf);
             const y = chartHeight - barHeight;
@@ -152,7 +152,7 @@ export function FreeCashFlowChart({ companyId }: FreeCashFlowChartProps) {
           {/* FCF Margin Line */}
           <polyline
             points={chartData
-              .map((point: any, index: any) => {
+              .map((point: FreeCashFlowDataPoint, index: number) => {
                 const x = index * (barWidth + spacing) + barWidth / 2;
                 const y = getLineY(point.fcfMargin, maxMargin);
                 return `${x},${y}`;
@@ -164,7 +164,7 @@ export function FreeCashFlowChart({ companyId }: FreeCashFlowChartProps) {
           />
 
           {/* FCF Margin Data Points */}
-          {chartData.map((point: any, index: any) => {
+          {chartData.map((point: FreeCashFlowDataPoint, index: number) => {
             const x = index * (barWidth + spacing) + barWidth / 2;
             const y = getLineY(point.fcfMargin, maxMargin);
 
@@ -197,7 +197,7 @@ export function FreeCashFlowChart({ companyId }: FreeCashFlowChartProps) {
           })}
 
           {/* X-axis labels */}
-          {chartData.map((point: any, index: any) => {
+          {chartData.map((point: FreeCashFlowDataPoint, index: number) => {
             const x = index * (barWidth + spacing) + barWidth / 2;
             return (
               <text

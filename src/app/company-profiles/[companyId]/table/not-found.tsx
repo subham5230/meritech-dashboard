@@ -18,8 +18,8 @@ export default function TableNotFound() {
             Table Not Found
           </h1>
           <p className="text-lg text-gray-600 mb-8 max-w-md mx-auto">
-            The company table you're looking for doesn't exist. Please check the
-            company ID or navigate using the sidebar.
+            The company table you&apos;re looking for doesn&apos;t exist. Please
+            check the company ID or navigate using the sidebar.
           </p>
 
           {/* Action Buttons */}

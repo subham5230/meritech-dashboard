@@ -2,19 +2,16 @@
 
 import { useState } from "react";
 import { trpc } from "@/utils/trpc";
+import { LtmRevenueDataPoint } from "@/types";
 
 interface LtmRevenueChartProps {
   companyId: string;
 }
 
-interface ChartDataPoint {
-  quarter: string;
-  ltmRevenue: number;
-  yoyGrowth: number;
-}
-
 export function LtmRevenueChart({ companyId }: LtmRevenueChartProps) {
-  const [hoveredPoint, setHoveredPoint] = useState<ChartDataPoint | null>(null);
+  const [hoveredPoint, setHoveredPoint] = useState<LtmRevenueDataPoint | null>(
+    null
+  );
 
   const {
     data: chartData = [],
@@ -78,8 +75,12 @@ export function LtmRevenueChart({ companyId }: LtmRevenueChartProps) {
     );
   }
 
-  const maxRevenue = Math.max(...chartData.map((d: any) => d.ltmRevenue));
-  const maxGrowth = Math.max(...chartData.map((d: any) => d.yoyGrowth));
+  const maxRevenue = Math.max(
+    ...chartData.map((d: LtmRevenueDataPoint) => d.ltmRevenue)
+  );
+  const maxGrowth = Math.max(
+    ...chartData.map((d: LtmRevenueDataPoint) => d.yoyGrowth)
+  );
 
   const chartHeight = 400;
   const chartWidth = 1000;

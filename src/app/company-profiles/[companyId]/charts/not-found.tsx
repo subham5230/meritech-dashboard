@@ -18,8 +18,8 @@ export default function ChartsNotFound() {
             Charts Not Found
           </h1>
           <p className="text-lg text-gray-600 mb-8 max-w-md mx-auto">
-            The company charts you're looking for don't exist. Please check the
-            company ID or navigate using the sidebar.
+            The company charts you&apos;re looking for don&apos;t exist. Please
+            check the company ID or navigate using the sidebar.
           </p>
 
           {/* Action Buttons */}

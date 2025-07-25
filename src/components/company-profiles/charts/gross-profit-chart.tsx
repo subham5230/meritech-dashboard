@@ -2,19 +2,16 @@
 
 import { useState } from "react";
 import { trpc } from "@/utils/trpc";
+import { GrossProfitDataPoint } from "@/types";
 
 interface GrossProfitChartProps {
   companyId: string;
 }
 
-interface ChartDataPoint {
-  quarter: string;
-  grossProfit: number;
-  grossMargin: number;
-}
-
 export function GrossProfitChart({ companyId }: GrossProfitChartProps) {
-  const [hoveredPoint, setHoveredPoint] = useState<ChartDataPoint | null>(null);
+  const [hoveredPoint, setHoveredPoint] = useState<GrossProfitDataPoint | null>(
+    null
+  );
 
   const {
     data: chartData = [],
@@ -78,8 +75,12 @@ export function GrossProfitChart({ companyId }: GrossProfitChartProps) {
     );
   }
 
-  const maxProfit = Math.max(...chartData.map((d: any) => d.grossProfit));
-  const maxMargin = Math.max(...chartData.map((d: any) => d.grossMargin));
+  const maxProfit = Math.max(
+    ...chartData.map((d: GrossProfitDataPoint) => d.grossProfit)
+  );
+  const maxMargin = Math.max(
+    ...chartData.map((d: GrossProfitDataPoint) => d.grossMargin)
+  );
 
   const chartHeight = 400;
   const chartWidth = 1000;
@@ -120,7 +121,7 @@ export function GrossProfitChart({ companyId }: GrossProfitChartProps) {
           ))}
 
           {/* Gross Profit Bars */}
-          {chartData.map((point: any, index: any) => {
+          {chartData.map((point: GrossProfitDataPoint, index: number) => {
             const x = index * (barWidth + spacing);
             const barHeight = getBarHeight(point.grossProfit, maxProfit);
             const y = chartHeight - barHeight;
@@ -152,7 +153,7 @@ export function GrossProfitChart({ companyId }: GrossProfitChartProps) {
           {/* Gross Margin Line */}
           <polyline
             points={chartData
-              .map((point: any, index: any) => {
+              .map((point: GrossProfitDataPoint, index: number) => {
                 const x = index * (barWidth + spacing) + barWidth / 2;
                 const y = getLineY(point.grossMargin, maxMargin);
                 return `${x},${y}`;
@@ -164,7 +165,7 @@ export function GrossProfitChart({ companyId }: GrossProfitChartProps) {
           />
 
           {/* Gross Margin Data Points */}
-          {chartData.map((point: any, index: any) => {
+          {chartData.map((point: GrossProfitDataPoint, index: number) => {
             const x = index * (barWidth + spacing) + barWidth / 2;
             const y = getLineY(point.grossMargin, maxMargin);
 
@@ -197,7 +198,7 @@ export function GrossProfitChart({ companyId }: GrossProfitChartProps) {
           })}
 
           {/* X-axis labels */}
-          {chartData.map((point: any, index: any) => {
+          {chartData.map((point: GrossProfitDataPoint, index: number) => {
             const x = index * (barWidth + spacing) + barWidth / 2;
             return (
               <text

@@ -239,7 +239,7 @@ interface FilterPanelProps {
 }
 
 function FilterPopover({ config, value, onChange, onClose }: FilterPanelProps) {
-  const getRangeOptions = (range: { min: number; max: number }) => {
+  const getRangeOptions = (_range: { min: number; max: number }) => {
     if (config.key === "revenueGrowth") {
       return ["All", "<10%", "10-25%", ">25%"];
     } else if (config.key === "evToRevenue") {

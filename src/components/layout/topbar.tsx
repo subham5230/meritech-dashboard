@@ -5,18 +5,7 @@ import { useRouter, usePathname } from "next/navigation";
 import { navigationItems } from "@/config/navigation";
 import { cn } from "@/utils/cn";
 
-interface TopbarProps {
-  onFiltersClick?: () => void;
-  onManageColumnsClick?: () => void;
-  onSearchClick?: () => void;
-}
-
-export function Topbar({
-  onFiltersClick,
-  onManageColumnsClick,
-  onSearchClick,
-}: TopbarProps) {
-  const [searchQuery, setSearchQuery] = useState("");
+export function Topbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [expandedItems, setExpandedItems] = useState<string[]>([]);
   const menuRef = useRef<HTMLDivElement>(null);

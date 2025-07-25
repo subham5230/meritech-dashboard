@@ -8,7 +8,10 @@ import superjson from "superjson";
  *
  * These allow you to access things when processing a request, like the database, the session, etc.
  */
-export const createTRPCContext = async (opts: { req: Request; res: any }) => {
+export const createTRPCContext = async (opts: {
+  req: Request;
+  res: Response;
+}) => {
   const { req, res } = opts;
 
   return {
