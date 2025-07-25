@@ -31,11 +31,7 @@ export function DashboardLayout({ children }: DashboardLayoutProps) {
       >
         {/* Topbar - Only visible on medium screens and below */}
         <div className="lg:hidden">
-          <Topbar
-            onFiltersClick={() => console.log("Filters clicked")}
-            onManageColumnsClick={() => console.log("Manage columns clicked")}
-            onSearchClick={() => console.log("Search clicked")}
-          />
+          <Topbar />
         </div>
 
         {/* Main Content */}
